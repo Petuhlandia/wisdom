@@ -1,0 +1,14 @@
+{% if wordlist %}
+ <ul>
+     {% for word in wordlist %}
+     <li>
+         {{ word }}
+         <br>
+
+     </li>
+     {% endfor %}
+     {% else %}
+     nowords in list
+     {% endif %}
+
+ </ul>
