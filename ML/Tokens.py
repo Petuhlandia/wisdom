@@ -42,19 +42,25 @@ def prepare_data(text):
     global input_data
     if len(input_data) == 0:
         input_data = without_stop_words
+        print("INPUT DATA:")
+        print(input_data)
+        print("<--------------------------->")
     else:
         global wise_advice
         wise_advice.append(without_stop_words)
+        print(without_stop_words)
 
 def from_array_to_0_1(array):
     f = open('words.txt', 'r', encoding='utf-8')
+    words = re.findall(r"(?:(?<=\[.)|(?<=,\s.)).+?(?:(?=.\,\s)|(?=.\]))", f.read())
     array_0_1 = []
+    for i in range(len(words)):
+        array_0_1.insert(i, 0)
+
     for i in array:
-        for j in re.findall(r"(?:(?<=\[.)|(?<=,\s.)).+?(?:(?=.\,\s)|(?=.\]))", f.read()):
-            if str(i).lower() == str(j).lower():
-                array_0_1.append(1)
-            else:
-                array_0_1.append(0)
+        for j in range(len(words)):
+            if str(i).lower() == str(words[j]).lower():
+                array_0_1[j] = 1
     f.close()
     return array_0_1
 
@@ -95,6 +101,10 @@ def compare_text_and_wise_advice():
         for j in range(len(text)):
             if int(text[j]) == int(wise[j]) and int(text[j]) != 0:
                 count += 1
+                f_words = open('words.txt', 'r', encoding='utf-8')
+                words = re.findall(r"(?:(?<=\[.)|(?<=,\s.)).+?(?:(?=.\,\s)|(?=.\]))", f_words.read())
+                print("FOUND: ", words[j])
+                f_words.close()
         f.close()
 
         f_count = open('count.txt', "a", encoding='utf-8')
