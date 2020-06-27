@@ -1,33 +1,47 @@
 <!DOCTYPE HTML>
-<html>
-<head>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<html xmlns="http://www.w3.org/1999/html">
+<header>
     <title>Мудрый советник</title>
-</head>
+</header>
 <style>
 h1{
+font-size: 40px;
+line-height: 2;
+letter-spacing: 1px;
+color: #00FF00;
+}
+body{
+background-image: url("http://i.piccy.info/i9/2b346440905d64f7191b211204b89f1d/1593259598/830116/1385392/les_derevya_tropa_112291_1920x1080.jpg");
+background-size: 100%;
+}
+header{
+}
+b{
+color: yellow;
 font-size: 25px;
 line-height: 2;
 letter-spacing: 1px;
-color: black;
 }
-body{
-background-image: url("http://i.piccy.info/i9/14ab8d6e89694204cf03c6bbab4ac5ab/1593190881/206810/1385392/photo_2020_06_26_19_57_56.jpg");
-background-size: 100%;
-}
-head{
-color: red;
+div{
+position: absolute;
+top: 300px;
+left: 30%;
 }
 </style>
 <body>
+<h1 align="center">Вас приветстсвует мудрый советник!</h1>
+<div class="form">
 <form name="test" method="post" align = "center">
   <p><b>Введите текст:</b><br>
-      <input type="text" size="100">
+      <textarea type="text" style="width: 700px; height: 200px;" /></textarea>
       <p><input type="submit" value="Отправить">
    <input type="reset" value="Очистить"></p>
   </form>
 <form name="test" method="get" align = "center">
   <p><b>Ответ:</b><br>
-      <input type="text" size="100" readonly>
+      <textarea type="text" style="width: 700px; height: 200px;" readonly></textarea>
+  </p>
+</form>
+</div>
 </body>
 </html>
